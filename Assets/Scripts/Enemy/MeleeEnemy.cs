@@ -3,23 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour {
-  public float speed;
-  public GameObject target;
-  public float meleeRange = 2;
+  public float speed = 4;
+  public GameObject player;
+  public Transform target;
+  public float range = 40;
+  public float minDistance = 20;
+  public State state = State.Hunting;
+
+  public enum State {
+    Hunting,
+    Attacking,
+  }
 
   void Start() {
-    target = GameObject.Find("Player");
-    speed = UnityEngine.Random.Range(1, 3);
+    player = GameObject.Find("Player");
+    target = player.transform;
   }
 
   void Update() {
-    if (Vector2.Distance(transform.position, target.transform.position) >
-        meleeRange) {
-      transform.position =
-          Vector2.MoveTowards(transform.position, target.transform.position,
-                              speed * Time.deltaTime);
-    } else {
-      // transform.position = transform.position;
+    switch (state) {
+    case State.Hunting:
+      if (Vector2.Distance(transform.position, target.position) < range) {
+        state = State.Attacking;
+      } else if (Vector2.Distance(transform.position, target.position) >
+                 range) {
+        transform.position = Vector3.MoveTowards(
+            transform.position, target.position, speed * Time.deltaTime);
+      }
+      break;
+    case State.Attacking:
+      state = State.Hunting;
+      break;
+    default:
+      break;
     }
   }
 }
