@@ -17,12 +17,14 @@ public class Gun : MonoBehaviour
     public int magSize, bulletsPerTap;
     int ammoLeft, ammoShot;
 
+    public Animator animator;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInParent<Animator>();
         ammoLeft = magSize;
         readyToShoot = true;
     }
@@ -48,6 +50,9 @@ public class Gun : MonoBehaviour
 
         //rotate the bullet to make it spread
         currentBullet.transform.Rotate(0f, 0f, spread);
+
+        //play animation
+        animator.SetTrigger("Shoot");
 
         //launch the bullet
         Rigidbody2D rb = currentBullet.GetComponent<Rigidbody2D>();

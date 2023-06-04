@@ -35,16 +35,16 @@ public class PlayerMovementAL : MonoBehaviour
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
-            animator.SetTrigger("Shoot");
+            animator.SetBool("Move", true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        else 
         {
-            animator.SetTrigger("Melee");
+            animator.SetBool("Move", false);
         }
+
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && Time.time > nextDash)
         {

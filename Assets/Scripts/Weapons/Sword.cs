@@ -16,6 +16,13 @@ public class Sword : MonoBehaviour
     //What layer the sword deals damage to
     public LayerMask enemyLayers;
 
+    public Animator animator;
+
+    void Start()
+    {
+        animator = GetComponentInParent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +39,9 @@ public class Sword : MonoBehaviour
     
     void Attack()
     {
+        //play animation
+        animator.SetTrigger("Melee");
+
         //check for enemies inside the range of the attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 

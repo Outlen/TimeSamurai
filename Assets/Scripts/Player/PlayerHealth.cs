@@ -1,29 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 20;
     public int currentHealth;
     public int areaDamage = 100; // damage for the area attack
     public float attackRadius = 3f; // radius of the area attack
 
+    public Image healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentHealth);
+
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.fillAmount = currentHealth / 100f;
     }
 
     public void AreaAttack()
