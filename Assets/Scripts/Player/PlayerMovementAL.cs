@@ -16,6 +16,7 @@ public class PlayerMovementAL : MonoBehaviour
     Vector2 movementDirection;
     Vector2 mousePos;
     public Camera cam;
+    bool facingRight = true;
     
     float distance = 60;
 
@@ -34,6 +35,15 @@ public class PlayerMovementAL : MonoBehaviour
         }
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        if (mousePos.x > transform.position.x && !facingRight)
+        {
+            flip();
+        }
+        else if (mousePos.x < transform.position.x && facingRight)
+        {
+            flip();
+        }
 
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
@@ -54,6 +64,12 @@ public class PlayerMovementAL : MonoBehaviour
         }
 
     
+    }
+
+    void flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 
     void FixedUpdate()

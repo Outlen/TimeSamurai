@@ -8066,7 +8066,7 @@ GameObject:
   - component: {fileID: 731328208}
   - component: {fileID: 731328209}
   m_Layer: 11
-  m_Name: Shotgun
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19302,18 +19302,6 @@ MonoBehaviour:
   Camera: {fileID: 519420032}
   PosX: 0
   PosY: 0
-  map1Bounds:
-    serializedVersion: 2
-    x: -136
-    y: -99.6
-    width: 272
-    height: 195.6
-  map2Bounds:
-    serializedVersion: 2
-    x: -135
-    y: -316
-    width: 270
-    height: 201
 --- !u!1 &1927166176
 GameObject:
   m_ObjectHideFlags: 0
