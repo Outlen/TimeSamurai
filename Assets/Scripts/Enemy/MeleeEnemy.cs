@@ -6,8 +6,7 @@ public class MeleeEnemy : MonoBehaviour {
   public float speed = 4;
   public GameObject player;
   public Transform target;
-  public float range = 40;
-  public float minDistance = 20;
+  public float range = 3;
   public State state = State.Hunting;
 
   public enum State {

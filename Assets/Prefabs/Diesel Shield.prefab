@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6147920233004268614}
   - component: {fileID: 6147920233004268615}
   - component: {fileID: 6147920233004268617}
-  - component: {fileID: 6147920233004268616}
   - component: {fileID: 6147920233004268619}
+  - component: {fileID: 2667687686770347020}
   m_Layer: 6
   m_Name: Diesel Shield
   m_TagString: earlyJP
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6147920233004268613
 SpriteRenderer:
@@ -165,21 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   rb: {fileID: 0}
---- !u!114 &6147920233004268616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6147920233004268610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cbfdd263038d9141b59ed1673f5a304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 12
-  rb: {fileID: 6147920233004268614}
 --- !u!114 &6147920233004268619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,3 +178,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+--- !u!114 &2667687686770347020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147920233004268610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fbff3991ce473408b5cab0524c4437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  player: {fileID: 0}
+  target: {fileID: 0}
+  range: 2
+  state: 0

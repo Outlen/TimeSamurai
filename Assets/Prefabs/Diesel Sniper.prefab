@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5992419287869325155}
   - component: {fileID: 5992419287869325154}
   - component: {fileID: 5992419287869325164}
-  - component: {fileID: 5992419287869325165}
   - component: {fileID: 5992419287869325166}
+  - component: {fileID: 9106744685530984321}
   m_Layer: 6
   m_Name: Diesel Sniper
   m_TagString: earlyJP
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5992419287869325152
 SpriteRenderer:
@@ -165,21 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   rb: {fileID: 0}
---- !u!114 &5992419287869325165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992419287869325159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cbfdd263038d9141b59ed1673f5a304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 12
-  rb: {fileID: 5992419287869325155}
 --- !u!114 &5992419287869325166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,3 +178,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+--- !u!114 &9106744685530984321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992419287869325159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd3028626c3b5274195f15ef769da1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  player: {fileID: 0}
+  target: {fileID: 0}
+  range: 16
+  minDistance: 9
+  state: 0

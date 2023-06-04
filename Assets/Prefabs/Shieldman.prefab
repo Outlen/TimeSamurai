@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7568274031868191161}
   - component: {fileID: 7568274031868191160}
   - component: {fileID: 7568274031868191158}
-  - component: {fileID: 7568274031868191159}
   - component: {fileID: 7568274031868191156}
   m_Layer: 6
   m_Name: Shieldman
@@ -35,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7568274031868191162
 SpriteRenderer:
@@ -165,21 +164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   rb: {fileID: 0}
---- !u!114 &7568274031868191159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7568274031868191165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cbfdd263038d9141b59ed1673f5a304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 12
-  rb: {fileID: 7568274031868191161}
 --- !u!114 &7568274031868191156
 MonoBehaviour:
   m_ObjectHideFlags: 0
