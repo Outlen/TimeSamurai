@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2667687686770347020}
   m_Layer: 6
   m_Name: Diesel Shield
-  m_TagString: earlyJP
+  m_TagString: dieselPunk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac03933c92d45d4c84347f7c6ec3bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  collisionDamage: 0
 --- !u!114 &2667687686770347020
 MonoBehaviour:
   m_ObjectHideFlags: 0
