@@ -5,13 +5,18 @@ using System.Linq;
 
 public class EnemyWaveGenerator : MonoBehaviour {
   public bool continueSpawning = true;
-  public int waveGapSeconds = 5;
+  public int waveGapSeconds = 3;
   public int spawnGapSeconds = 1;
-  public int waveLevel = 2;
-  public float spawnDistance = 40;
+  public float spawnDistance = 80;
   public Transform target;
 
+  public int waveLevel = 4;
+  public float waveStartTime;
+  public int timeLimit = 10; // time limit plus wave level.
+                             // 10 + 4 = 14seconds
+
   public List<GameObject> enemyTypes;
+  public List<float> typeProbabilities;
   public List<GameObject> enemies;
   public GameObject enemyContainer;
 
@@ -28,7 +33,9 @@ public class EnemyWaveGenerator : MonoBehaviour {
     yield return new WaitForSeconds(waveGapSeconds);
     while (continueSpawning) {
       yield return SpawnWaveEnemies();
-      yield return new WaitWhile(enemiesAreAlive);
+      waveStartTime = Time.time;
+      distributeProbabilities();
+      yield return new WaitWhile(enemiesAreAliveOrTimeLimitReached);
       yield return new WaitForSeconds(waveGapSeconds);
     }
   }
@@ -53,10 +60,39 @@ public class EnemyWaveGenerator : MonoBehaviour {
     }
   }
 
-  private bool enemiesAreAlive() {
+  private bool enemiesAreAliveOrTimeLimitReached() {
+    if ((waveStartTime + waveLevel + timeLimit) < Time.time) {
+      return false;
+    }
     enemies = enemies.Where(e => e != null).ToList();
     return enemies.Count > 0;
   }
+  public float max;
+  private void distributeProbabilities() {
+    if (typeProbabilities[0] < 51) {
+      // once probabilities have been distributed enough,
+      //      don't bother continuing
+      // Debug.Log("distributed");
+      return;
+    }
+    int prob = Random.Range(1, 11) + waveLevel;
+    for (int i = typeProbabilities.Count - 1; i >= 0; i--) {
+      typeProbabilities[typeProbabilities.Count - i - 1] += prob * (i + 1);
+    }
+    max = typeProbabilities.Sum();
+    for (int i = 0; i < typeProbabilities.Count; i++) {
+      typeProbabilities[i] = typeProbabilities[i] * 100 / max;
+    }
+  }
 
-  private GameObject randomType() { return enemyTypes[0]; }
+  private GameObject randomType() {
+    int type = Random.Range(1, 101);
+    for (int i = 0; i < typeProbabilities.Count; i++) {
+      if (type <= typeProbabilities[i]) {
+        return enemyTypes[i];
+      }
+      type -= (int)typeProbabilities[i];
+    }
+    return enemyTypes[enemyTypes.Count - 1];
+  }
 }
